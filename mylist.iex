@@ -1,5 +1,14 @@
 defmodule MyList do
 
+    def mapsum(list, fun) do
+        reduce(list, [], &([fun.(&1)|&2]))
+        |> sum1
+    end
+
+    def reduce([], value, _), do: value
+
+    def reduce([head|tail], value, fun), do: reduce(tail, fun.(head, value), fun)
+
     def sum([]), do: 0
 
     def sum([head|tail]), do: head + sum(tail)
@@ -10,7 +19,4 @@ defmodule MyList do
 
     defp sum1([head|tail], accumulator), do: sum1(tail, head + accumulator)
 
-    def reduce([], value, _), do: value
-
-    def reduce([head|tail], value, fun), do: reduce(tail, fun.(head, value), fun)
 end
