@@ -1,5 +1,9 @@
 defmodule MyList do
 
+    def max([h|tail]) do
+        reduce(tail, h, &(max/2))
+    end
+
     def mapsum(list, fun) do
         reduce(list, [], &([fun.(&1)|&2]))
         |> sum1
