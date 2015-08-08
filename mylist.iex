@@ -9,4 +9,8 @@ defmodule MyList do
     defp sum1([], accumulator), do: accumulator
 
     defp sum1([head|tail], accumulator), do: sum1(tail, head + accumulator)
+
+    def reduce([], value, _), do: value
+
+    def reduce([head|tail], value, fun), do: reduce(tail, fun.(head, value), fun)
 end
