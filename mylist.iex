@@ -1,0 +1,12 @@
+defmodule MyList do
+
+    def sum([]), do: 0
+
+    def sum([head|tail]), do: head + sum(tail)
+
+    def sum1(list), do: sum1(list, 0)
+
+    defp sum1([], accumulator), do: accumulator
+
+    defp sum1([head|tail], accumulator), do: sum1(tail, head + accumulator)
+end
