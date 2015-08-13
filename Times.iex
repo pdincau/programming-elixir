@@ -4,5 +4,5 @@ defmodule Times do
 
     def triple(n), do: 3 * n
 
-    def quadruple(n), do: 2 * double(n)
+    def quadruple(n), do: 2 * double n
 end
